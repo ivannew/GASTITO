@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GASTITO.Vistas.Registrargasto"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="REGISTRO"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="15">
+            <Image Source="https://i.ibb.co/4StnwJ0/hogar.png" WidthRequest="40">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding volvercommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
