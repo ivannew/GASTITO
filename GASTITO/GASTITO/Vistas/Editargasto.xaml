@@ -5,14 +5,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="EDITAR"/>
+            <Button Text="guardar"
+   Command="{Binding volvercommand}"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Padding="15">
-
-            <Image Source="https://i.ibb.co/4StnwJ0/hogar.png" WidthRequest="40">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Volvercommand}"/>
-                </Image.GestureRecognizers>
-            </Image>
-        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

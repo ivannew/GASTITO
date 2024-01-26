@@ -6,13 +6,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="REGISTRO"></Label>
+            <Button Text="guardar"
+              Command="{Binding volvercommand}"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="15">
-            <Image Source="https://i.ibb.co/4StnwJ0/hogar.png" WidthRequest="40">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding volvercommand}"/>
-                </Image.GestureRecognizers>
-            </Image>
-            </StackLayout>
+      
     </ContentPage.Content>
 </ContentPage>
