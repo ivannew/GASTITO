@@ -1,13 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GASTITO.Vistas.Editargasto">
+             x:Class="GASTITO.Vistas.Editargasto"
+             NavigationPage.HasNavigationBar="False">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="EDITAR"/>
-            <Button Text="guardar"
-   Command="{Binding volvercommand}"/>
+       
+        <StackLayout Grid.Row="1" Margin="10">
+            <!--Nombre-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre: "
+                 TextColor="White" 
+                 FontAttributes="Bold"
+                 VerticalOptions="Center"
+                 FontSize="18"/>
+                <Entry Placeholder="Ingrese el nombre" 
+                 FontAttributes="Bold" 
+                 TextColor="#ffeb72"
+                 PlaceholderColor="White"
+                 HorizontalOptions="StartAndExpand"
+                 Text="{Binding _gatos.Nombre}"/>
+            </StackLayout>
+
+            <!--Ingrese el color fondo-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Color fondo: "
+                 TextColor="White" 
+                 FontAttributes="Bold"
+                 VerticalOptions="Center"
+                 FontSize="18"/>
+                <Entry Placeholder="Ingrese la fecha" 
+                 FontAttributes="Bold" 
+                 TextColor="#ffeb72"
+                 PlaceholderColor="White"
+                 TextTransform="Lowercase"
+                 HorizontalOptions="StartAndExpand"
+                 Text="{Binding _gatos.Fecha}"/>
+            </StackLayout>
+
+            <!--Ingrese el número-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Número: "
+                 TextColor="White" 
+                 FontAttributes="Bold"
+                 VerticalOptions="Center"
+                 FontSize="18"/>
+                <Entry Placeholder="Ingrese la cantidad" 
+                 FontAttributes="Bold" 
+                 TextColor="#ffeb72"
+                 PlaceholderColor="White"
+                 TextTransform="Lowercase"
+                 HorizontalOptions="StartAndExpand"
+                 Text="{Binding _gatos.Cantidad}"
+                 Keyboard="Numeric"/>
+            </StackLayout>
+
+            <Grid RowDefinitions="100, *"
+       Margin="0,10,0,0">
+                <Frame Grid.Row="1" WidthRequest="250"
+            HorizontalOptions="Center"
+            CornerRadius="15"
+            Margin="0,-38,0,0">
+                    <StackLayout 
+             Margin="0,70,0,0">
+                        <Label Text="{Binding TxtNombre}"/>
+                        <Label Text="{Binding TxtFecha}"/>
+                        <Label Text="{Binding _gastos.Id}"/>
+                        <Label Text="{Binding TxtCantidad}"
+                    CharacterSpacing="1"
+                    FontSize="20"
+                    Margin="0,0,0,5"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
+                <Button
+                  Text="Eliminar"
+                  BackgroundColor="#E57373"
+                  TextColor="White"
+ 
+                  BorderWidth="2"
+                  CornerRadius="15"
+                  FontSize="18"
+                  WidthRequest="100"
+                  HeightRequest="40"
+                  Command="{Binding Eliminarcommand}"
+                  />
+                            <Button
+                  Text="Editar"
+                  BackgroundColor="#81C784"
+                  TextColor="White"
+ 
+                  BorderWidth="2"
+                  CornerRadius="15"
+                  FontSize="18"
+                  WidthRequest="100"
+                  HeightRequest="40"
+                  Command="{Binding Editarcommand}"
+                  />        
+            </StackLayout>
+
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

@@ -11,7 +11,7 @@ namespace GASTITO
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Listagastos());
+            MainPage = new NavigationPage(new Bienvenida());
         }
 
         protected override void OnStart()

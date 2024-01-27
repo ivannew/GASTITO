@@ -36,16 +36,17 @@ namespace GASTITO.Datos
 
         public async Task<List<Mgastos>> MostrarGasto2()
         {
-            return (await Cconexion.firebase.Child("Pokemon")
+            return (await Cconexion.firebase.Child("Gasto") // Cambiado de "Pokemon" a "Gasto"
                     .OnceAsync<Mgastos>())
                     .Select(item => new Mgastos
                     {
-                        Id= item.Key,
+                        Id = item.Key,
                         Nombre = item.Object.Nombre,
                         Fecha = item.Object.Fecha,
                         Cantidad = item.Object.Cantidad,
                     }).ToList();
         }
+
         public async Task Actualizar(Mgastos parametros)
         {
             await Cconexion.firebase.Child("Gasto").Child(parametros.Id).PutAsync(new Mgastos

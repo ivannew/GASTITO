@@ -1,20 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GASTITO.Vistas.Listagastos">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="lISTAS"
-              />
-            <Button Text="Ir a Registrar"
-                    Command="{Binding IrARegistrocommand}"
-                    VerticalOptions="End"
-                    HorizontalOptions="End"
-                    CornerRadius="5"
-                    Margin="15"/>
-        </StackLayout>
+             x:Class="GASTITO.Vistas.Listagastos"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:sombras="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
+    <Grid RowDefinitions="60,*" BackgroundColor="#EDEDED">
 
+        <Label Text="GASTITO"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="28"
+               FontAttributes="Bold"
+               TextColor="#AD84FF"/>
      
-    </ContentPage.Content>
+        <CollectionView x:Name="Listado"
+                        Grid.Row="1"
+                        Background="#EDEDED"
+                        ItemsSource="{Binding ListaGastos}"
+                        Margin="10,10,10,10">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="auto, *"
+                          Margin="10,10,10,10">
+                        <sombras:Shadows CornerRadius="30"
+                                         Shades="{sombras:SingleShade Offset='0,14',Opacity=0.5, Color=#AD84FF,BlurRadius=15}" >
+                            <Frame Grid.Row="1"
+                                   WidthRequest="200"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand" 
+                                   CornerRadius="30"
+                                   Margin="10,0,10,0"
+                                   HasShadow="False"
+                                   BackgroundColor="#EDEDED">
+                                <StackLayout Margin="0,10,0,0">
+                                    <Label Text="{Binding Nombre}"
+                                           FontSize="20"
+                                           TextColor="#333333"
+                                           FontFamily="Reboto"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy}'}"
+                                           FontSize="20"
+                                           TextColor="#333333"/>
+
+                                    <Label Text="{Binding Cantidad, StringFormat='${0:F2}'}"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="#007D0C"/>
+                                </StackLayout>
+                            </Frame>
+                        </sombras:Shadows>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.IraEditarcommand,Source={x:Reference Listado}}" CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Label Text="{Binding TotalCantidad, StringFormat='Total: ${0:F2}'}"
+       HorizontalOptions="EndAndExpand"
+       VerticalOptions="Center"
+       FontSize="20"
+               Margin="20,20,110,-60"
+       TextColor="#333333"/>
+
+
+
+        
+            <Frame x:Name="advertenciaFrame"
+       IsVisible="{Binding MostrarAdvertencia}"
+       CornerRadius="30"
+       BackgroundColor="Red"
+       Padding="6"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+                         Margin="30,0,30,-1200"
+                         HeightRequest="100">
+            
+            <Frame.Triggers>
+                <DataTrigger TargetType="Frame" Binding="{Binding MostrarAdvertencia}" Value="False">
+                    <Setter Property="IsVisible" Value="False" />
+                </DataTrigger>
+                <DataTrigger TargetType="Frame" Binding="{Binding MostrarAdvertencia}" Value="True">
+                    <Setter Property="IsVisible" Value="True" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Label Text="                     ¡Advertencia!  
+                   Has gastado más de $5000.
+                   Te recomiendo borrar un gasto."
+           TextColor="White"
+           FontSize="16"/>
+        </Frame>
+
+          
+
+
+
+        <Button Text="+"
+            HorizontalOptions="Center"
+            BackgroundColor="#89FF94"
+            BorderColor="#89FF94"
+            CornerRadius="30"
+            FontSize="25"
+            TextColor="Black"
+            FontAttributes="Bold"
+            WidthRequest="60"
+            HeightRequest="60"
+            TranslationX="0"
+                    TranslationY="700"
+                Command="{Binding IrARegistrocommand}"/>
+      
+
+
+    </Grid>
 </ContentPage>

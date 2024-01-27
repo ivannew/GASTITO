@@ -15,8 +15,8 @@ namespace GASTITO.VistaModelos
 
         #region VARIABLES
         string _TxtNombre;
-        string _TxtFecha;
-        string _TxtCantidad;
+        DateTime _TxtFecha;
+        double _TxtCantidad;
        
         public Mgastos _gastos { get; set; }
         #endregion
@@ -34,12 +34,12 @@ namespace GASTITO.VistaModelos
             get { return _gastos.Nombre; }
             set { SetValue(ref _TxtNombre, value); }
         }
-        public string TxtFecha
+        public DateTime TxtFecha
         {
             get { return _gastos.Fecha; }
             set { SetValue(ref _TxtFecha, value); }
         }
-        public string TxtCantidad
+        public double TxtCantidad
         {
             get { return _gastos.Cantidad; }
             set { SetValue(ref _TxtCantidad, value); }

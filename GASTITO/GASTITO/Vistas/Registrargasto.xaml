@@ -4,11 +4,84 @@
              x:Class="GASTITO.Vistas.Registrargasto"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="REGISTRO"></Label>
-            <Button Text="guardar"
-              Command="{Binding volvercommand}"/>
-        </StackLayout>
       
+        <StackLayout Grid.Row="1" Margin="10">
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre: "
+                 TextColor="white"
+                 FontAttributes="Bold"
+                 VerticalOptions="Center"/>
+                <Entry Placeholder="Ingrese el nombre"
+                 FontAttributes="Bold"
+                 TextColor="#ffeb72"
+                 PlaceholderColor="White"
+                 TextTransform="Lowercase"
+                 HorizontalOptions="StartAndExpand"
+                 Text="{Binding TxtNombre}"/>
+            </StackLayout>
+
+            <Label Text="color fondo: "
+                TextColor="white"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                FontSize="18"/>
+            <Entry Placeholder="Ingrese la fecha"
+                  FontAttributes="Bold"
+                  TextColor="#ffeb72"
+                  PlaceholderColor="White"
+                  TextTransform="Lowercase"
+                  HorizontalOptions="StartAndExpand"
+            Text="{Binding TxtFecha}"/>
+
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Numero: "
+                   TextColor="white"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>       
+                <Entry Placeholder="Ingrese la cantidad"
+                   FontAttributes="Bold"
+                   TextColor="#ffeb72"
+                   PlaceholderColor="White"
+                   TextTransform="Lowercase"
+                   HorizontalOptions="StartAndExpand"
+             Text="{Binding TxtCantidad}"/>
+            
+                
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+              HorizontalOptions="Center">
+                <Image Source="https://i.ibb.co/QJd9wkK/ojo.png"
+            HeightRequest="20"/>
+                <Label Text="Vista previa"
+            FontSize="20"
+            TextColor="White"
+            FontAttributes="Italic"
+            VerticalOptions="Center"/>
+
+            </StackLayout>
+         
+            <Frame HorizontalOptions="Center"
+        Padding="6"
+        Margin="0,10,0,0"
+        CornerRadius="15"
+        HasShadow="False"
+        BackgroundColor="#FEC100">
+                <Button
+         Text="+"
+         HorizontalOptions="Center"
+         BackgroundColor="#FEC100"
+         BorderColor="#FFE4BB"
+         BorderWidth="6"
+         CornerRadius="15"
+         FontAttributes="Bold"
+         FontSize="25"
+         WidthRequest="60"
+         HeightRequest="60"
+         Command="{Binding InsertarCommand}"/>
+            </Frame>
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

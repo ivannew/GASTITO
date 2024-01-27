@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GASTITO.Vistas.Bienvenida"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:sombras="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             BackgroundColor="#AD84FF">
+    <StackLayout>
+        <Label Text="GASTITO" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,0,0,-40"></Label>
+        <StackLayout>
+            <Image Margin="10,100,20,0"
+       VerticalOptions="Center"
+       HorizontalOptions="Center"
+       HeightRequest="400" Source="https://i.ibb.co/Hh0Jf2S/chico-triunfador-chaqueta-azul-1187-2990-1.png" Aspect="AspectFill">
+            </Image>
+
+            <sombras:Shadows CornerRadius="100"
+                             Shades="{sombras:SingleShade Offset='1,0',Opacity=1.0, Color=#AD84FF,BlurRadius=20}">
+                <Frame Margin="-30,-10,-30,0" HeightRequest="300" CornerRadius="100">
+
+                    <StackLayout>
+
+                        <Label Text="¡Haz que cada centavo cuente!
+                               el limite es de $5000" Margin="20,10,10,10"
+               FontSize="20"
+                               FontFamily="Roboto"
+                               FontAttributes="Bold"
+               TextColor="#5D5D5D"
+               HorizontalTextAlignment="Center"
+               
+               VerticalOptions="CenterAndExpand" />
+
+                        <sombras:Shadows CornerRadius="100"
+                         Shades="{sombras:SingleShade Offset='1,6', Opacity=1.0, Color=#AD84FF,BlurRadius=30}">
+
+                            <Button Text="IR"
+                    Command="{Binding IrAlistacommand}"
+                    Margin="160,100,160,20"
+                    CornerRadius="100"
+                    BackgroundColor="#AD84FF"></Button>
+
+                        </sombras:Shadows>
+                    </StackLayout>
+
+                </Frame>
+
+            </sombras:Shadows>
+        </StackLayout>
+</StackLayout>
+      
+
+    
+</ContentPage>

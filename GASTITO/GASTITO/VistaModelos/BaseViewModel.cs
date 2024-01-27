@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace GASTITO.VistaModelos
 {
-    public class BaseViewModel
+    public class BaseViewModel: INotifyPropertyChanged
     {
         public INavigation Navigation;
 
