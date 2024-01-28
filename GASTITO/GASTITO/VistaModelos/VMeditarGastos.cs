@@ -32,17 +32,31 @@ namespace GASTITO.VistaModelos
         public string TxtNombre
         {
             get { return _gastos.Nombre; }
-            set { SetValue(ref _TxtNombre, value); }
+            set
+            {
+                _gastos.Nombre = value;
+                OnPropertyChanged(nameof(TxtNombre));
+            }
         }
+
         public DateTime TxtFecha
         {
             get { return _gastos.Fecha; }
-            set { SetValue(ref _TxtFecha, value); }
+            set
+            {
+                _gastos.Fecha = value;
+                OnPropertyChanged(nameof(TxtFecha));
+            }
         }
+
         public double TxtCantidad
         {
             get { return _gastos.Cantidad; }
-            set { SetValue(ref _TxtCantidad, value); }
+            set
+            {
+                _gastos.Cantidad = value;
+                OnPropertyChanged(nameof(TxtCantidad));
+            }
         }
 
         #endregion
@@ -54,7 +68,7 @@ namespace GASTITO.VistaModelos
             parametros.Id = _gastos.Id;
             parametros.Nombre = TxtNombre;
             parametros.Fecha = TxtFecha;
-           
+            parametros.Cantidad=TxtCantidad;
 
             await funcion.Actualizar(parametros);
             await Volver();
