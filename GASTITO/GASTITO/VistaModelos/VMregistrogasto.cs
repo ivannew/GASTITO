@@ -17,10 +17,12 @@ namespace GASTITO.VistaModelos
         double _TxtCantidad;
         #endregion
 
+
         #region CONSTRUCTOR
         public VMregistrogasto(INavigation navigation)
         {
             Navigation=navigation;
+            TxtFecha = DateTime.Now;
         }
         #endregion
 

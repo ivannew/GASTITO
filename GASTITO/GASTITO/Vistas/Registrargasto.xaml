@@ -2,86 +2,104 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GASTITO.Vistas.Registrargasto"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:sombras="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             BackgroundColor="#AD84FF">
     <ContentPage.Content>
-      
-        <StackLayout Grid.Row="1" Margin="10">
+        <StackLayout Margin="20">
+            <Label Text="REGISTRO" FontSize="30" FontAttributes="Bold" FontFamily="Roboto" HorizontalOptions="Center"></Label>
+            <sombras:Shadows CornerRadius="20"
+                   Shades="{sombras:SingleShade Offset='1,9',Opacity=0.5, Color=#000000,BlurRadius=10}">
+                <Frame HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Padding="10"
+                   CornerRadius="20"
+                   HasShadow="True"
+                   BackgroundColor="White"
+                   Margin="0,30,0,250">
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Nombre: "
-                 TextColor="white"
-                 FontAttributes="Bold"
-                 VerticalOptions="Center"/>
-                <Entry Placeholder="Ingrese el nombre"
-                 FontAttributes="Bold"
-                 TextColor="#ffeb72"
-                 PlaceholderColor="White"
-                 TextTransform="Lowercase"
-                 HorizontalOptions="StartAndExpand"
-                 Text="{Binding TxtNombre}"/>
-            </StackLayout>
+                <StackLayout>
 
-            <Label Text="color fondo: "
-                TextColor="white"
-                FontAttributes="Bold"
-                VerticalOptions="Center"
-                FontSize="18"/>
-            <Entry Placeholder="Ingrese la fecha"
-                  FontAttributes="Bold"
-                  TextColor="#ffeb72"
-                  PlaceholderColor="White"
-                  TextTransform="Lowercase"
-                  HorizontalOptions="StartAndExpand"
-            Text="{Binding TxtFecha}"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Asunto: "
+                                     TextColor="Black"
+                                     FontAttributes="Bold"
+                                     VerticalOptions="Center"
+                               FontSize="18"/>
+                        <Frame HeightRequest="40" CornerRadius="25" Padding="5">
+                            <Entry Placeholder="Ingrese el asunto"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   PlaceholderColor="Gray"
+                                   TextTransform="Lowercase"
+                                   HorizontalOptions="StartAndExpand"
+                                   Text="{Binding TxtNombre}"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Fecha: "
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               FontSize="18"/>      
+                        <Frame HeightRequest="40" WidthRequest="220" CornerRadius="25" Padding="5">
+                            <Entry Placeholder="Ingrese la fecha"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               PlaceholderColor="Gray"
+                               TextTransform="Lowercase"
+                               HorizontalOptions="StartAndExpand"
+                               Text="{Binding TxtFecha}"/>      
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Cantidad: "
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               FontSize="18"/>       
+                        <Frame HeightRequest="40" WidthRequest="220" CornerRadius="25" Padding="5">
+                            <Entry Placeholder="Ingrese la cantidad"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               PlaceholderColor="Gray"
+                               TextTransform="Lowercase"
+                               HorizontalOptions="StartAndExpand"
+                               Text="{Binding TxtCantidad}"/>
+
+                        </Frame>
+                    </StackLayout>
 
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Numero: "
-                   TextColor="white"
-                   FontAttributes="Bold"
-                   VerticalOptions="Center"/>       
-                <Entry Placeholder="Ingrese la cantidad"
-                   FontAttributes="Bold"
-                   TextColor="#ffeb72"
-                   PlaceholderColor="White"
-                   TextTransform="Lowercase"
-                   HorizontalOptions="StartAndExpand"
-             Text="{Binding TxtCantidad}"/>
-            
-                
-            </StackLayout>
-            <StackLayout Orientation="Horizontal"
-              HorizontalOptions="Center">
-                <Image Source="https://i.ibb.co/QJd9wkK/ojo.png"
-            HeightRequest="20"/>
-                <Label Text="Vista previa"
-            FontSize="20"
-            TextColor="White"
-            FontAttributes="Italic"
-            VerticalOptions="Center"/>
+                    <sombras:Shadows CornerRadius="15"
+                                     Shades="{sombras:SingleShade Offset='1,0',Opacity=1.0, Color=#89FF94,BlurRadius=20}">
+                        <Frame HorizontalOptions="Center"
+                               Padding="0"
+                               Margin="0,30,0,0"
+                               HeightRequest="40"
+                               WidthRequest="130"
+                               CornerRadius="19"
+                               HasShadow="False"
+                               BackgroundColor="#89FF94">
+                            <Button Text="Gastar"
+                                    HorizontalOptions="Center"
+                                    BackgroundColor="#89FF94"
+                                    BorderColor="#89FF94"
+                                    BorderWidth="6"
+                                    CornerRadius="15"
+                                    FontAttributes="Bold"
+                                    FontSize="15"
+                                    WidthRequest="90"
+                                    HeightRequest="60"
+                                    Command="{Binding InsertarCommand}"/>
+                        </Frame>
+                    </sombras:Shadows>
 
-            </StackLayout>
-         
-            <Frame HorizontalOptions="Center"
-        Padding="6"
-        Margin="0,10,0,0"
-        CornerRadius="15"
-        HasShadow="False"
-        BackgroundColor="#FEC100">
-                <Button
-         Text="+"
-         HorizontalOptions="Center"
-         BackgroundColor="#FEC100"
-         BorderColor="#FFE4BB"
-         BorderWidth="6"
-         CornerRadius="15"
-         FontAttributes="Bold"
-         FontSize="25"
-         WidthRequest="60"
-         HeightRequest="60"
-         Command="{Binding InsertarCommand}"/>
+                </StackLayout>
+
             </Frame>
+            </sombras:Shadows>
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>
