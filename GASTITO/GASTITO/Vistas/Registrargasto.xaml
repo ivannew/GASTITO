@@ -7,6 +7,14 @@
              BackgroundColor="#AD84FF">
     <ContentPage.Content>
         <StackLayout Margin="20">
+            <Image Source="https://i.ibb.co/0ZFB8G6/deshacer.png" 
+       HeightRequest="30" 
+       HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding volvercommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+
             <Label Text="REGISTRO" FontSize="30" FontAttributes="Bold" FontFamily="Roboto" HorizontalOptions="Center"></Label>
             <sombras:Shadows CornerRadius="20"
                    Shades="{sombras:SingleShade Offset='1,9',Opacity=0.5, Color=#000000,BlurRadius=10}">
@@ -66,6 +74,7 @@
                                PlaceholderColor="Gray"
                                TextTransform="Lowercase"
                                HorizontalOptions="StartAndExpand"
+                                   Keyboard="Numeric"
                                Text="{Binding TxtCantidad}"/>
 
                         </Frame>

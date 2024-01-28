@@ -8,6 +8,13 @@
 
     <ContentPage.Content>
         <StackLayout Margin="20">
+            <Image Source="https://i.ibb.co/0ZFB8G6/deshacer.png" 
+HeightRequest="30" 
+HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Volvercommand}" />
+                </Image.GestureRecognizers>
+            </Image>
             <Label Text="DETALLE" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" FontFamily="Roboto"></Label>
             <sombras:Shadows CornerRadius="20"
                    Shades="{sombras:SingleShade Offset='1,9',Opacity=0.5, Color=#000000,BlurRadius=10}">
@@ -90,7 +97,7 @@
                                     FontSize="14"
                                     WidthRequest="90"
                                     HeightRequest="60"
-                                    Command="{Binding EliminarCommand}"/>
+                                    Command="{Binding Eliminarcommand}"/>
                             </Frame>
                             </sombras:Shadows>
                             <sombras:Shadows CornerRadius="15"
@@ -107,7 +114,7 @@
                                     FontSize="14"
                                     WidthRequest="90"
                                     HeightRequest="60"
-                                    Command="{Binding EditarCommand}"/>
+                                    Command="{Binding Editarcommand}"/>
                             </Frame>
                             </sombras:Shadows>
                         </StackLayout>
